@@ -1,10 +1,11 @@
-import express, { Express } from "express";
-import { ChattyServer } from "./setupServer";
-import databaseConnection from "./setupDatabase";
-import { config } from "./config";
+import express, { Express } from 'express';
+import { ChattyServer } from './setupServer';
+import databaseConnection from './setupDatabase';
+import { config } from './config';
 
 class Application {
   public initialize(): void {
+    this.loadConfig();
     databaseConnection();
     const app: Express = express();
     const server: ChattyServer = new ChattyServer(app);
@@ -13,6 +14,7 @@ class Application {
 
   private loadConfig(): void {
     config.validationConfig();
+    config.cloudinaryCondig();
   }
 }
 
