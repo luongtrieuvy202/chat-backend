@@ -9,6 +9,7 @@ import { Request, Response } from 'express';
 import JWT from 'jsonwebtoken';
 import { config } from 'src/config';
 import HTTP_STATUS from 'http-status-codes';
+import { mailTransport } from 'src/shared/services/emails/mail.transport';
 
 export class SignIn {
   @joiValidation(loginSchema)
