@@ -3,8 +3,9 @@ import Queue, { Job } from 'bull';
 import Logger from 'bunyan';
 import { config } from 'src/config';
 import { IAuthJob } from 'src/features/auth/intefaces/auth.interface';
+import { IEmailJob } from 'src/features/user/interfaces/user.interface';
 
-type IBaseJobData = IAuthJob;
+type IBaseJobData = IAuthJob | IEmailJob;
 
 let bullAdapters: BullAdapter[] = [];
 export let serverAdapter: ExpressAdapter;
